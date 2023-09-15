@@ -4,7 +4,7 @@ import { NavLink } from "react-router-dom";
 import { FaCartPlus } from "react-icons/fa"
 import './css/navbar.css'
 import { useNavigate } from 'react-router-dom';
-function Navbar({ size }) {
+function Navbar({ size, cartItemCount = 0 }) {
     const navigate = useNavigate();
     const navigateCart = () => {
         // 👇️ navigate to /contacts
@@ -20,7 +20,7 @@ function Navbar({ size }) {
                 <NavLink to="/Login" style={{ marginLeft: "auto", font: "14px", fontFamily: "Roboto", color: "#f14d54", marginTop: "20px" }}>Login</NavLink>
                 <p style={{ marginTop: "15px" }}>|</p>
                 <NavLink to="/" style={{ font: "14px", fontFamily: "Roboto", color: "#f14d54", marginTop: "20px" }}>Register</NavLink>
-                <button onClick={navigateCart} style={{ backgroundColor: "#f14d54", height: "30px", width: "105px", color: "white", borderRadius: "3px", borderColor: "white", marginTop: "14px" }}><div style={{ display: "flex" }}><FaCartPlus style={{ marginTop: "4px", marginLeft: "5px" }} /><h2 style={{ font: "20px", fontFamily: "Roboto", color: "rgb(65,65,65)", marginLeft: "8px" }}> CART </h2></div></button>
+                <button onClick={navigateCart} style={{ backgroundColor: "#f14d54", height: "30px", width: "130px", color: "white", borderRadius: "3px", borderColor: "white", marginTop: "14px" }}><div style={{ display: "flex" }}><FaCartPlus style={{ marginTop: "4px", marginLeft: "5px" }} /><h2 style={{ font: "20px", fontFamily: "Roboto", color: "rgb(65,65,65)", marginLeft: "8px" }}>{cartItemCount.length} CART </h2></div></button>
 
             </div> </nav>
             <div style={{ height: "80px", backgroundColor: "grey", width: "100%" }}>

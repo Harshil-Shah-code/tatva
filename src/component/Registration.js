@@ -15,25 +15,25 @@ function Registration() {
     const handleRegister = (e) => {
         e.preventDefault();
         // Validate first name and last name: Only alphabets are allowed
-    const nameRegex = /^[A-Za-z]+$/;
-    if (!nameRegex.test(firstName) || !nameRegex.test(lastName)) {
-      setRegistrationError("First name and last name should only contain alphabets.");
-      return;
-    }
+        const nameRegex = /^[A-Za-z]+$/;
+        if (!nameRegex.test(firstName) || !nameRegex.test(lastName)) {
+            setRegistrationError("First name and last name should only contain alphabets.");
+            return;
+        }
 
-    // Check email format using a regular expression
-    const emailPattern = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
-    if (!emailPattern.test(email)) {
-      setRegistrationError("Invalid email address. Please enter a valid email.");
-      return;
-    }
+        // Check email format using a regular expression
+        const emailPattern = /^\w+([.-]?\w+)*@\w+([.-]?\w+)*(\.\w{2,3})+$/;
+        if (!emailPattern.test(email)) {
+            setRegistrationError("Invalid email address. Please enter a valid email.");
+            return;
+        }
 
-    // Validate password: 8 characters, at least one uppercase, one lowercase, one number, and no special characters other than '@'
-    const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@]?)[A-Za-z\d@]{8,}$/;
-    if (!passwordPattern.test(password)) {
-      setRegistrationError("Password must be 8 characters and contain at least one uppercase letter, one lowercase letter, and one digit. '@' is optional.");
-      return;
-    }
+        // Validate password: 8 characters, at least one uppercase, one lowercase, one number, and no special characters other than '@'
+        const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@]?)[A-Za-z\d@]{8,}$/;
+        if (!passwordPattern.test(password)) {
+            setRegistrationError("Password must be 8 characters and contain at least one uppercase letter, one lowercase letter, and one digit. '@' is optional.");
+            return;
+        }
         // Check if the password and confirm password fields match
         if (password !== confirmPassword) {
             setRegistrationError("Passwords do not match. Please try again.");

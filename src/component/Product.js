@@ -5,8 +5,14 @@ import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { Button, CardActionArea, CardActions, Pagination } from '@mui/material';
 // import Logo from "C:/Users/INDIA/Desktop/react/tatva/src/logo.svg";
-function Product(handleClick) {
+function Product(props) {
   const [data, setData] = useState(null);
+
+
+  const addToCartHandler = (itemId) => {
+    props.onAddToCart(itemId);
+
+  }
 
 
   useEffect(() => {
@@ -42,7 +48,7 @@ function Product(handleClick) {
               <Typography gutterBottom variant="h5" component="div"  >
                 Rs. {item.volumeInfo.pageCount}
               </Typography>
-              <Button size="small" color="primary">
+              <Button size="small" color="primary" onClick={() => addToCartHandler(item.id)}>
                 Add to Cart
               </Button>
             </CardActions>
